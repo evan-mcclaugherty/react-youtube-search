@@ -3,13 +3,12 @@ import './VideoItem.css';
 
 class VideoItem extends React.Component {
     render() {
-        const { snippet } = this.props.video;
+        const { video, onVideoSelect } = this.props;
         return (
-            <div className='video-item item'>
-                <img className='ui image' src={snippet.thumbnails.medium.url}></img>
+            <div className='video-item item' onClick={() => onVideoSelect(video)} >
+                <img className='ui image' alt={video.snippet.title} src={video.snippet.thumbnails.medium.url}></img>
                 <div className='content'>
-                    <div className='header'>{snippet.title}</div>
-                    {/* <div className='description'>{snippet.description}</div> */}
+                    <div className='header'>{video.snippet.title}</div>
                 </div>
             </div>
         );
